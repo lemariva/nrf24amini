@@ -9,7 +9,7 @@ RF24 radio(7, 8);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
-#define nodeID 10
+#define nodeID 5
 
 const unsigned long interval = 10000; //ms  // How often to send the payload
 
@@ -18,8 +18,8 @@ uint32_t displayTimer = 0;
 struct payload_commands_t
 {
   unsigned long nodeId;
-  char command[10];
-  char value[5];
+  unsigned long command;
+  unsigned long value;
 };
 
 struct payload_sensordata_t
@@ -74,9 +74,15 @@ void loop() {
 
   while (network.available()) {
     RF24NetworkHeader header;
-    payload_commands_t payload;
-    network.read(header, &payload, sizeof(payload));
-    Serial.print("Received packet");
+    payload_commands_t payload_cmd;
+    network.read(header, &payload_cmd, sizeof(payload_cmd));
+    Serial.print("Received packet: "); 
+    Serial.print(payload_cmd.nodeId); 
+    Serial.print("\r cmd: ");
+    Serial.print(payload_cmd.command); 
+    Serial.print("\r value: ");
+    Serial.print(payload_cmd.value); 
+    Serial.print("\n");
   }
 }
 

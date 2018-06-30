@@ -27,11 +27,11 @@ Arduino Pro Mini node compatible with [nRF24Things](https://github.com/lemariva/
 |Fig. 1: FTDI-1232, Arduino Mini Pro (3.3V) &amp; NRF24L01+|
 
 Please check that the Arduino Mini Pro is a 3.3V compatible version. The NRF24L01+ does not support 5V. If you use an Arduino 5V version, you need to not only supply the nrf24l01+ with 3.3V but also the signals (CE, CSN, MOSI, MISO) should be 3.3V too.
-The FTDI1232 board muss work with 3.3V too. The board that I linked in the section hardware has a jumper to set its voltage to 3.3V. 
+The FTDI1232 board muss work with 3.3V too. The board that I linked in the section hardware has a jumper to set its voltage to 3.3V.
 
 
 ## Instructions
-1. Connect the boards as described in the Connection section. Check voltage jumpers! 
+1. Connect the boards as described in the Connection section. Check voltage jumpers!
 2. Install the Arduino Ide and open it.
 3. Connect the FTDI1232 to your computer.
 4. Go to the menu "Tools" > "Programmer" and select "AVRISP mkII".
@@ -48,7 +48,7 @@ The FTDI1232 board muss work with 3.3V too. The board that I linked in the secti
 	* `RF24Network\RF24Network.cpp` [line 1247-1248]
 		* `static uint8_t address_translation[] = { 0xc3,0x3c,0x33,0xce,0x3e,0xe3,0xec }`
 		* `uint64_t result = 0xCCCCCCCCCCL;`
-9. Upload the code with the `Upload` button, and have fun! 
+9. Upload the code with the `Upload` button, and have fun!
 
 ## Credits
 Libraries from <a href="https://github.com/TMRh20" target="_blank">TMRh20</a> and <a href="https://github.com/maniacbug" target="_blank">maniacbug</a>:
